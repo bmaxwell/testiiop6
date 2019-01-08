@@ -38,7 +38,7 @@ public class JDKClient
 
 				System.setProperty("com.sun.CORBA.ORBUseDynamicStub", "true");
 				// set the client security context.
-		        LoginContext loginContext = new LoginContext("csi", new SimpleCallbackHandler("ejbtest", "ejbtest@123"));
+		        LoginContext loginContext = new LoginContext("csi", new SimpleCallbackHandler("ejbuser", "redhat1!"));
 		        loginContext.login();
 				// get initial context
         InitialContext ctx = getIIOPInitialContext(host);
@@ -63,7 +63,12 @@ public class JDKClient
 				if(remote == null)
 					throw new Exception("remote is null after create, unable to invoke hello method");
 
+				System.out.println("Test1 standalone client => EAP1");
         System.out.println("remote.hello('JBoss') => " + remote.hello("JBoss"));
+
+
+				System.out.println("Test2 standalone client => EAP1 => EAP2");
+        System.out.println("remote.hello('JBoss') => " + remote.hello2("JBoss", "localhost", 3628));
     }
 
     protected static InitialContext getIIOPInitialContext(String host) throws NamingException

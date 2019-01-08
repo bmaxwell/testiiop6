@@ -8,7 +8,7 @@ import javax.security.auth.callback.NameCallback;
 import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
-class SimpleCallbackHandler implements CallbackHandler
+public class SimpleCallbackHandler implements CallbackHandler
    {
       String username;
       char[] password;

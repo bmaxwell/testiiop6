@@ -6,5 +6,6 @@ import javax.ejb.EJBObject;
 
 public interface HelloRemote extends EJBObject
 {
-   String hello(String name) throws RemoteException;
+   String hello(String message) throws RemoteException;
+   String hello2(String message, String host, int port) throws RemoteException;
 }
